@@ -1,5 +1,9 @@
 Obd2YouWeb::Application.routes.draw do
-  resources :trouble_codes
+  root 'trouble_codes#index'
+
+  resources :trouble_codes do
+    collection { post :import }
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

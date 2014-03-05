@@ -1,5 +1,19 @@
 <h1>Listing trouble_codes</h1>
 
+<h2>Download data as csv</h2>
+<%= link_to "Download CSV", trouble_codes_path(format: "csv") %>
+
+<h2>Upload data as csv</h2>
+
+<%= form_tag import_trouble_codes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<br>
+
+<%= link_to 'New Trouble code', new_trouble_code_path %>
+
 <table>
   <thead>
     <tr>
@@ -26,6 +40,4 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Trouble code', new_trouble_code_path %>

@@ -9,8 +9,19 @@ class TroubleCodesController < ApplicationController
       if params[:callback]
         format.js { render :json => {:trouble_codes => @trouble_codes.to_json}, :callback => params[:callback] }
       else
-        format.json { render json: {:trouble_codes => @trouble_codes}}
+        format.csv { send_data @trouble_codes.to_csv }
+        format.html { render trouble_codes: @trouble_codes }
       end
+    end
+  end
+
+  def import
+    if (params[:file])
+      TroubleCode.delete_all
+      TroubleCode.import(params[:file])
+      redirect_to root_url, notice: "You have successfully imported a new list of contacts."
+    else
+      redirect_to root_url, notice: "You didn't attach a file."
     end
   end
 
