@@ -1,0 +1,31 @@
+<h1>Listing trouble_codes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Make</th>
+      <th>Error</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trouble_codes.each do |trouble_code| %>
+      <tr>
+        <td><%= trouble_code.code %></td>
+        <td><%= trouble_code.make %></td>
+        <td><%= trouble_code.error %></td>
+        <td><%= link_to 'Show', trouble_code %></td>
+        <td><%= link_to 'Edit', edit_trouble_code_path(trouble_code) %></td>
+        <td><%= link_to 'Destroy', trouble_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trouble code', new_trouble_code_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @trouble_code.code %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @trouble_code.make %>
+</p>
+
+<p>
+  <strong>Error:</strong>
+  <%= @trouble_code.error %>
+</p>
+
+<%= link_to 'Edit', edit_trouble_code_path(@trouble_code) %> |
+<%= link_to 'Back', trouble_codes_path %>
